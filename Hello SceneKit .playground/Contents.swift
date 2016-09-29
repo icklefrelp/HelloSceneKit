@@ -95,6 +95,12 @@ lightNode.light = light
 lightNode.position = SCNVector3(8,12,15)
 scene.rootNode.addChildNode(lightNode)
 
+let camera = SCNCamera()
+let cameraNode = SCNNode()
+cameraNode.position = SCNVector3(0,0,60)
+//print(cameraNode.camera)
+cameraNode.camera = camera
+scene.rootNode.addChildNode(cameraNode)
 /*:
  ## Set up the live view
  
