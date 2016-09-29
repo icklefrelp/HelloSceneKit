@@ -72,13 +72,13 @@ scene.rootNode.addChildNode(cube)
 let dullMat = SCNMaterial()
 dullMat.diffuse.contents = #colorLiteral(red: 0.7602152824, green: 0.7601925135, blue: 0.7602053881, alpha: 1)
 let metalMat = SCNMaterial()
-metalMat.diffuse.contents = #colorLiteral(red: 1.0, green: 0.498039215803146, blue: 0.756862759590149, alpha: 1.0)
+metalMat.diffuse.contents = #colorLiteral(red: 0.952941179275513, green: 0.686274528503418, blue: 0.133333340287209, alpha: 1.0)
 
-dullMat.lightingModelName = SCNLightingModelPhysicallyBased
+dullMat.lightingModel = SCNMaterial.LightingModel.physicallyBased
 dullMat.roughness.contents = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 dullMat.metalness.contents = #colorLiteral(red: 0.1956433058, green: 0.2113749981, blue: 0.2356699705, alpha: 1)
 
-metalMat.lightingModelName = SCNLightingModelPhysicallyBased
+metalMat.lightingModel = SCNMaterial.LightingModel.physicallyBased
 metalMat.roughness.contents = #colorLiteral(red: 0.5296475887, green: 0.5296317339, blue: 0.5296407342, alpha: 1)
 //add some noise to the metal texture using SpriteKit. You could really go to town with the new GameplayKit noise features
 metalMat.metalness.contents = SKTexture(noiseWithSmoothness: 0.8, size: CGSize(width: 500, height: 500), grayscale: true).cgImage()
@@ -89,7 +89,7 @@ cube.geometry?.materials = [dullMat]
 hello.materials = [metalMat, dullMat, dullMat, metalMat, dullMat]
 
 let light = SCNLight()
-light.type = SCNLightTypeOmni
+light.type = SCNLight.LightType.omni
 let lightNode = SCNNode()
 lightNode.light = light
 lightNode.position = SCNVector3(8,12,15)
